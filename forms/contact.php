@@ -9,9 +9,12 @@
 // Replace contact@example.com with your real receiving email address
 $receiving_email_address = 'contact@example.com';
 
-if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
-    include($php_email_form);
-} else {
+// Include the PHP Email Form library using the namespace
+require_once '../assets/vendor/php-email-form/php-email-form.php';
+
+use Vendor\PHPEmailForm\PHP_Email_Form; // Adjust the namespace according to your library
+
+if (!class_exists('PHP_Email_Form')) {
     die('Unable to load the "PHP Email Form" Library!');
 }
 
